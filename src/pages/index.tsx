@@ -1,5 +1,6 @@
-/* @jsx jsx */
+/** @jsx jsx */
 import { jsx } from '@emotion/core';
+
 import { Link } from 'gatsby';
 import { connect } from 'react-redux';
 
@@ -16,6 +17,7 @@ const Button = styled.button`
 const IndexPage = ({ count, loading, onIncrement, onDecrement }) => (
   <Layout css={{ display: 'flex', alignItems: 'center' }}>
     <SEO title="Home" />
+
     <h2 css={{ textAlign: 'center' }}>Counter</h2>
     <p css={{ textAlign: 'center', fontSize: '2rem' }}>{count}</p>
 

@@ -37,6 +37,7 @@
     "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.0.0-next.13",
     "@types/node": "^12.12.11",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
@@ -82,7 +83,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/mattiejas/gatsby-starter"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"

@@ -15,6 +15,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "jsxFactory": "jsx"
   }
 }
