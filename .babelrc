@@ -1,0 +1,13 @@
+{
+  "presets": [
+    [
+      "@emotion/babel-preset-css-prop",
+      {
+        "sourceMap": true,
+        "labelFormat": "[local]",
+        "cssPropOptimization": true
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
+}

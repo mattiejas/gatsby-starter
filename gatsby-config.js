@@ -1,12 +1,14 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Starter',
-    description:
-      'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@gatsbyjs',
+    description: 'All you ever need in a Gatsby Starter.',
+    author: '@mattiejas',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -14,14 +16,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-typescript',
-      options: {
-        isTSX: true, // defaults to false
-        jsxPragma: 'jsx', // defaults to "React"
-        allExtensions: true, // defaults to false
-      },
-    },
+    'gatsby-plugin-typescript',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -53,6 +48,10 @@ module.exports = {
           failOnError: false,
         },
       },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: { src: path.join(__dirname, 'src') },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

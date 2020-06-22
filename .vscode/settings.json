@@ -2,11 +2,13 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.renderWhitespace": "boundary",
+  "files.eol": "\n",
   "editor.rulers": [140],
   "editor.formatOnSave": true,
   "files.encoding": "utf8",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
   "search.exclude": {
     "public/**": true,
     "node_modules/**": true
@@ -14,5 +16,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

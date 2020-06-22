@@ -1,22 +1,48 @@
-import React from 'react';
+/* @jsx jsx */
+import { jsx } from '@emotion/core';
 import { Link } from 'gatsby';
+import { connect } from 'react-redux';
 
-import Layout from '../components/layout';
-import Image from '../components/image';
-import SEO from '../components/seo';
+import Layout from 'src/components/Layout';
+import SEO from 'src/components/SEO';
+import styled from '@emotion/styled';
 
-const IndexPage = () => (
-  <Layout>
+import { incrementAsync, decrementAsync } from 'src/actions/count';
+
+const Button = styled.button`
+  margin: 10px;
+`;
+
+const IndexPage = ({ count, loading, onIncrement, onDecrement }) => (
+  <Layout css={{ display: 'flex', alignItems: 'center' }}>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+    <h2 css={{ textAlign: 'center' }}>Counter</h2>
+    <p css={{ textAlign: 'center', fontSize: '2rem' }}>{count}</p>
+
+    <div css={{ display: 'flex', justifyContent: 'center' }}>
+      <Button type="button" onClick={() => onIncrement(count)} disabled={loading}>
+        Increment {loading}
+      </Button>
+      <Button type="button" onClick={() => onDecrement(count)} disabled={loading}>
+        Decrement
+      </Button>
     </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+
+    <Link css={{ display: 'block', textAlign: 'center', margin: '20px 0' }} to="/404/">
+      Go to a non-existent page
+    </Link>
   </Layout>
 );
 
-export default IndexPage;
+const mapStateToProps = (state) => ({ count: state.counter.count, loading: state.counter.loading });
+
+const mapDispatchToProps = (dispatch) => ({
+  onIncrement: (count: number) => {
+    dispatch(incrementAsync(count));
+  },
+  onDecrement: (count: number) => {
+    dispatch(decrementAsync(count));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);

@@ -5,11 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import { useStaticQuery, graphql } from 'gatsby';
+import Header from 'src/components/Header';
 
-import Header from './header';
 import './layout.css';
 
 const Layout = ({ children }) => {
@@ -24,28 +24,28 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+    <div>
+      <Header title={data.site.siteMetadata.title} />
       <div
         style={{
-          margin: `0 auto`,
+          margin: '0 auto',
           maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+          padding: '0 1.0875rem 1.45rem',
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <footer
+          css={{
+            color: 'grey',
+            fontSize: '0.8rem',
+            textAlign: 'center',
+          }}
+        >
+          © {new Date().getFullYear()} Matthias Aarnoutse - {process.env.GATSBY_ENVIRONMENT}
         </footer>
       </div>
-    </>
+    </div>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
